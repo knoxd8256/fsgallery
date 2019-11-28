@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{url_for('static', filename='master.css')}}">
+    <title>{{ title }}</title>
+</head>
+
+<body>
+    {% block header %}
+    {% endblock %}
+    <nav id="nav">
+        <a href="#">Home</a>
+        {% if not current_user.is_anonymous %}
+        <a href="#">Logout</a>
+        <a href="#">Post</a>
+        {% endif %}
+    </nav>
+    {% with flashed = get_flashed_messages() %}
+    {% if flashed %}
+    {% for flash in flashed %}
+    <p class='flash'>{{flash}}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    {% block content %}
+    {% endblock %}
+
+    <!-- Button for mobile navigation, and handler for click event. -->
+    <button id='navBtn'>|||</button>
+    <script>
+        // Add event listener to the navBtn Button
+        document.getElementById('navBtn').addEventListener('click', navToggle);
+
+        // This function toggles the 'on' class of the nav element.
+        function navToggle() {
+            document.getElementById('nav').classList.toggle('on')
+        }
+    </script>
+</body>
+
+</html>
