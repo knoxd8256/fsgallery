@@ -3,6 +3,7 @@ import os
 
 from flask import Flask
 from fs_gallery.router import router
+from fs_gallery import database
 
 
 def create_app():
@@ -30,6 +31,9 @@ def create_app():
 
     # Initialize routes.
     router(app)
+
+    # Initialize database.
+    database.initapp(app)
 
     # Return the created app.
     return app

@@ -1,5 +1,3 @@
-import os
-
 # Import flask methods and decorators for route definition and resolution
 from flask import render_template
 from flask import redirect
@@ -34,6 +32,19 @@ def router(app):
             HTML content to be displayed.
         """
         return render_template('index.html', title='Home')
+
+    # About route.
+    @app.route('/about')
+    def about():
+        """
+        About Router Function.
+
+        Returns
+        -------
+        str
+            HTML content to be displayed.
+        """
+        return render_template('about.html', title='About')
 
     # Login route.
     @app.route('/login', methods=['GET', 'POST'])
