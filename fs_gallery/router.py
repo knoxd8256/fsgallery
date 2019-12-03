@@ -36,7 +36,7 @@ def router(app):
         return render_template('index.html', title='Home')
 
     # Login route.
-    @app.route('/login', methods=['GET', 'POST'])
+    @app.route('/login', method=['GET'])
     def login():
         """
         Login Router Function
@@ -50,5 +50,6 @@ def router(app):
         if g.user is not None:
             flash('You are already logged in!')
             return redirect(url_for('index'))
-        return render_template('login.html', title='Log In')
+        else:
+            return render_template('login.html', title='Log In')
     return
