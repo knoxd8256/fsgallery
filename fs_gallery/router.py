@@ -31,7 +31,87 @@ def router(app):
         str
             HTML content to be displayed.
         """
-        return render_template('index.html', title='Home')
+        gallery = [
+            {
+                'filename': 'image_01.jpg',
+                'title': 'Plexiglass',
+                'description': 'Okex.'
+                # For sale: Boolean
+                # Size: inches
+                # Folder: tag
+            }
+        ]
+        folders = [
+            {
+                'filename': 'image_01.jpg',
+                'title': 'Plexiglass'
+            },
+
+            {
+                'filename': 'image_06.jpg',
+                'title': 'Watercolor'
+            },
+
+            {
+                'filename': 'image_02.jpg',
+                'title': 'Acrylic'
+            },
+
+            {
+                'filename': 'image_03.jpg',
+                'title': 'Sculpture'
+            },
+
+            {
+                'filename': 'image_04.jpg',
+                'title': 'Collage'
+            },
+
+            {
+                'filename': 'image_05.jpg',
+                'title': 'Gifting'
+            }
+        ]
+        announcements = [
+            {
+                'filename': 'image_07.jpg',
+                'title': 'Gallery Postarino',
+                'body': 'Here is a description for ya.Here is a description for ya.Here is a description for ya.Here is a description for ya.Here is a description for ya.Here is a description for ya.Here is a description for ya.Here is a description for ya.Here is a description for ya.Here is a description for ya.Here is a description for ya.',
+                'timestamp': '12/17/2019'
+            },
+            {
+                'filename': 'image_06.jpg',
+                'title': 'Gallery Postarino',
+                'body': 'Here is a description for ya.',
+                'timestamp': '12/17/2019'
+            },
+            {
+                'filename': 'image_05.jpg',
+                'title': 'Gallery Postarino',
+                'body': 'Here is a description for ya.',
+                'timestamp': '12/17/2019'
+            },
+            {
+                'filename': 'image_04.jpg',
+                'title': 'Gallery Postarino',
+                'body': 'Here is a description for ya.',
+                'timestamp': '12/17/2019'
+            },
+            {
+                'filename': 'image_03.jpg',
+                'title': 'Gallery Postarino',
+                'body': 'Here is a description for ya.',
+                'timestamp': '12/17/2019'
+            },
+            {
+                'filename': 'image_02.jpg',
+                'title': 'Gallery Postarino',
+                'body': 'Here is a description for ya.',
+                'timestamp': '12/17/2019'
+            }
+        ]
+
+        return render_template('index.html', title='Home', folders=folders, announcements=announcements)
 
     # About route.
     @app.route('/about')
@@ -58,8 +138,23 @@ def router(app):
             HTML content to be displayed.
         """
 
+        if 'user' not in g:
+            g.user = None
+
         if g.user is not None:
             flash('You are already logged in!')
             return redirect(url_for('index'))
         return render_template('login.html', title='Log In')
+
+    @app.route('/uploads/<image>')
+    def uploaded_file(image):
+        """Upload Fetcher - returns a requested file from the uploads folder.
+
+        Args:
+            filename (str): Filename associated with the desired file.
+
+        Returns:
+            file: File requested from the uploads folder.
+        """
+        return send_from_directory(app.config['UPLOAD_FOLDER'], image)
     return

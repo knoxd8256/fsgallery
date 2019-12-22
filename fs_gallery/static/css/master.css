@@ -1,0 +1,297 @@
+/* This is the styling sheet for the index page of the new and improved JTA site. */
+
+/* Resets and base definitions */
+html,
+body,
+* {
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+html {
+    font-size: 11pt;
+    --shadow-color: rgba(0, 0, 10, 0.829);
+    --nav-background: #29024B;
+    --nav-text: #FFFFFF;
+    --primary-background: rgba(2, 3, 59, 0.829);
+    --secondary-background: rgba(0, 0, 0, 0);
+}
+
+h1 {
+    font-size: 220%;
+}
+
+h2 {
+    font-size: 180%;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Body Styling */
+body {
+    display: grid;
+    grid-template-rows: min-content auto;
+    grid-template-areas: "nav""main";
+    background-image: url("../img/background.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: var(--nav-background);
+    background-blend-mode: overlay;
+}
+
+/* Navigation Styling */
+nav {
+    font-size: 120%;
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    background-color: var(--nav-background);
+}
+
+nav a {
+    width: 10ch;
+    flex: .1;
+    text-align: center;
+    background-color: var(--nav-background);
+    color: var(--nav-text);
+    text-decoration: none;
+    line-height: 200%;
+}
+
+nav a:hover, nav a:active {
+    background-color: var(--primary-background);
+    text-shadow: white 0 0 .2em;
+}
+
+/* Main Grid Layout */
+main {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-rows: 5rem auto;
+    grid-template-columns: min-content min-content;
+    justify-content: space-evenly;
+}
+header {
+    grid-row: 1;
+    grid-column: 2;
+}
+
+/* Gallery Box Styling */
+.section__gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    width: min-content;
+    height: min-content;
+}
+.header__gallery, .footer__gallery {
+    grid-column: 1 / -1;
+}
+.footer__gallery{
+    height: max-content;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 2rem;
+}
+.pagination {
+    text-decoration: none;
+    line-height: 1.3em;
+    font-size: 120%;
+}
+/* Gallery Entry Styling */
+.gallery__post, .folder__post {
+    color: #DDEEFF;
+    position: relative;
+    display: grid;
+    width: 15rem;
+    height: 20rem;
+    padding: 1rem;
+    align-content: space-around;
+    justify-items: center;
+    grid-template-rows: 80% 20%;
+    background-color: var(--primary-background);
+    box-shadow: var(--shadow-color) .2em .3em .3em;
+}
+
+.gallery__img, .folder__img {
+    box-shadow: var(--shadow-color) .1em .1em .2em;
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.gallery__figure, .folder__figure {
+    grid-template-columns: 100%;
+    grid-template-rows: 90% 10%;
+    display: grid;
+    height: 95%;
+    width: 100%;
+    justify-items: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.gallery__caption, .folder__caption {
+    font-size: 110%;
+    font-weight: 600;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    display: block;
+}
+
+/* Folder Styling */
+.folder__post {
+    grid-template-rows: 100%;
+}
+
+/* Announcement Box Styling */
+.section__announcements {
+    --outer-ann: 36rem;
+    --inner-ann: 33rem;
+    position: relative;
+    grid-column: 2;
+    height: 85vh;
+    width: var(--outer-ann);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+}
+.header__announcements {
+    border: solid #000000 2px;
+    position: sticky;
+    top: 0;
+    line-height: 1.5em;
+    width: var(--outer-ann);
+    background-color: var(--nav-background);
+}
+/* Announcment Styling */
+.announcement {
+    font-family: 'Montserrat', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: solid #000000 2px;
+    width: var(--inner-ann);
+    background-color: var(--primary-background);
+    color: #DDEEFF;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 10ch auto;
+    gap: 2ch;
+    align-items: center;
+}
+
+.announcement__title,
+.announcement__body {
+    margin: .5rem 0;
+    grid-column: 2;
+}
+
+.announcement__figure {
+    grid-row: 1 / span 2;
+    display: block;
+    padding: 0;
+    margin: 0;
+    width: 10ch;
+}
+
+.announcement__img {
+    box-shadow: rgba(2, 3, 59, 0.829) .2rem .2rem .3rem;
+    display: block;
+    width: 10ch;
+}
+.announcement__timestamp {
+    font-weight: 600;
+}
+
+/* Modal Styling*/
+.modal {
+    width: max-content;
+    height: 60%;
+    z-index: 99;
+}
+.modal__container {
+
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 10, 0.829);
+}
+@media(max-width:1350px) {
+    .section__gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+    .section__announcements {
+        --inner-ann: 25rem;
+        --outer-ann: 28rem;
+    }
+}
+
+@media(max-width:1000px) {
+    .section__gallery {
+        grid-column: 1 / -1;
+        grid-row: 3;
+    }
+    .section__announcements {
+        grid-column: 1 / -1;
+        height: 20vh;
+        --inner-ann: 33rem;
+        --outer-ann: 35rem;
+        grid-row: 2;
+    }
+    header {
+        grid-row: 1;
+        grid-column: 1 / -1;
+    }
+    main {
+        width: 100%;
+        justify-content: center;
+        gap: 1em;
+    }
+}
+@media(max-width:750px) {
+    nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        justify-items: center;
+    }
+    nav a {
+        width: max-content;
+        text-align: center;
+    }
+    .section__gallery {
+        width: 100%;
+        grid-template-columns: max-content;
+        justify-content: center;
+    }
+    .gallery__img {
+        width: unset;
+    }
+    .section__announcements {
+        --inner-ann: 87%;
+        --outer-ann: 98%;
+    }
+    [class^="announcement__"] {
+        grid-column: 1 / -1;
+    }
+    .announcement__figure {
+        display: none;
+    }
+    header{
+        width: 100%;
+        font-size: 90%;
+    }
+    .header__gallery{
+        font-size: 120%;
+    }
+}

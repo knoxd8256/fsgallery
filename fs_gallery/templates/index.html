@@ -1,8 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
-      <article>
-        <h2>Welcome To My Serene Space</h2>
-        <h3>Be someplace else for a while...</h3>
-        <p>You can find information about me and my art on the About page, a collection of my works in my Portfolio, and contact information on the Contact page.</p>
-      </article>
-{% endblock %}
+
+        <section class="section__gallery">
+            <h2 class="header__gallery">Art</h2>
+            {% for folder in folders %}
+                {% include '_portfolder.html' %}
+            {% endfor %}
+        </section>
+        <header>
+            <h1>John The Artist</h1>
+        </header>
+        <section class="section__announcements">
+            <h3 class="header__announcements">Announcements</h3>
+            {% for ann in announcements %}
+                {% include '_announcement.html' %}
+            {% endfor %}
+        </section>
+    </main>
+{% endblock content %}
