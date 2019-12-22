@@ -13,23 +13,24 @@
 <body>
     <nav>
         <a href="#">Home</a>
-        <a href="#">Gifting</a>
-        <a href="#">For Sale</a>
-        <!--TODO: Portfolio
-        
-        
-        Plexi
-        Watercolor
-        Acrylic
-        Sculpture
-        Collage
-        Gifting-->
+        <a href="#" id="portfolio__link">Portfolio</a>
+        <ul class="nav__list" id="portfolio__list">
+            <a class="nav__portfolio" href="#"> Watercolor </a>
+            <a class="nav__portfolio" href="#"> Plexiglass </a>
+            <a class="nav__portfolio" href="#"> Acrylic </a>
+            <a class="nav__portfolio" href="#"> Sculpture </a>
+            <a class="nav__portfolio" href="#"> Collage </a>
+            <a class="nav__portfolio" href="#"> Gifting </a>
+        </ul>
         <a href="#">About</a>
     </nav>
     <main>
         {% block content %}
         {% endblock content %}
     </main>
+    <script>
+        document.getElementById("portfolio__link").addEventListener("click", () => document.getElementById("portfolio__list").classList.toggle("on"));
+    </script>
 </body>
 
 </html>

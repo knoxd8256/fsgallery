@@ -68,6 +68,33 @@ nav a:hover, nav a:active {
     text-shadow: white 0 0 .2em;
 }
 
+.nav__list {
+    transform: scaleY(0);
+    color: transparent;
+    transition: transform 100ms;
+    transform-origin: top;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 2rem;
+    width: 100%;
+}
+
+.nav__list a{
+    color: rgba(255, 255, 255, 0);
+    transition: color 100ms 50ms;
+}
+
+.nav__list.on a{
+    color: white;
+}
+.nav__list.on{
+    transform: scaleY(1);
+}
+.nav__portfolio, .nav__list {
+    z-index: 999;
+    width: 100%;
+}
 /* Main Grid Layout */
 main {
     margin-top: 1rem;
