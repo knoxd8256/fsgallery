@@ -24,10 +24,8 @@
         </ul>
         <a href="#">About</a>
     </nav>
-    <main>
-        {% block content %}
-        {% endblock content %}
-    </main>
+    {% block content %}
+    {% endblock content %}
     <script>
         document.getElementById("portfolio__link").addEventListener("click", () => document.getElementById("portfolio__list").classList.toggle("on"));
     </script>

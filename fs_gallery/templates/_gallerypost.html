@@ -1,7 +1,10 @@
 <article class="gallery__post">
     <figure class="gallery__figure">
-        <img src="uploads/{{gallerypost.filename}}" alt="{{gallerypost.title}}" class="gallery__img">
+        <img src="/uploads/{{gallerypost['imgfile']}}" alt="{{gallerypost['title']}}" class="gallery__img">
         <figcaption class="gallery__caption"> {{gallerypost.title}} </figcaption>
     </figure>
-    <p class="gallery__description">{{gallerypost.description}}</p>
+    <p class="gallery__description">
+        <span>Size: {{gallerypost["size"]}}</span> {% if gallerypost["forsale"] == True %} <span style="color:#095">For Sale {% endif %}</span> <br /> <br />
+        {{gallerypost["postdesc"]}}
+    </p>
 </article>

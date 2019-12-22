@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+    <main class="gallery">
+        <section class="section__gallery">
+            <h2 class="header__gallery">{{tag}}</h2>
+            {% for gallerypost in gallery %}
+                {% include '_gallerypost.html' %}
+            {% endfor %}
+        </section>
+        <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+        <script>
+            const images = [...document.getElementsByClassName("gallery__post")];
+            for(image in images){
+                images[image].addEventListener('click', getModal)
+            }
+        </script>
+    </main>
+{% endblock content %}

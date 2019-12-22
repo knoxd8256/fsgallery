@@ -7,6 +7,7 @@ from flask import send_from_directory
 from flask import flash
 from flask import g
 
+from . import database
 
 # Routing functions.
 def router(app):
@@ -31,16 +32,6 @@ def router(app):
         str
             HTML content to be displayed.
         """
-        gallery = [
-            {
-                'filename': 'image_01.jpg',
-                'title': 'Plexiglass',
-                'description': 'Okex.'
-                # For sale: Boolean
-                # Size: inches
-                # Folder: tag
-            }
-        ]
         folders = [
             {
                 'filename': 'image_01.jpg',
@@ -146,6 +137,7 @@ def router(app):
             return redirect(url_for('index'))
         return render_template('login.html', title='Log In')
 
+    # Upload Getter
     @app.route('/uploads/<image>')
     def uploaded_file(image):
         """Upload Fetcher - returns a requested file from the uploads folder.
@@ -157,4 +149,11 @@ def router(app):
             file: File requested from the uploads folder.
         """
         return send_from_directory(app.config['UPLOAD_FOLDER'], image)
+
+    # Portfolio Getter
+    @app.route('/portfolio/<tag>')
+    def portfolio(tag):
+        # insert statement:  db.execute('INSERT INTO posts (title, postdesc, imgfile, forsale, size, tags) VALUES ("The Title", "Here\'s a description, yaaaah yeet!","image_01.jpg", "True", "4 x 18 in.", "watercolor, gifting")')
+        gallery = database.getdb().execute('SELECT * FROM posts;').fetchall()
+        return render_template("gallery.html", title="Gallery", gallery=gallery)
     return

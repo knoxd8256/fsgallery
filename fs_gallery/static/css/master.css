@@ -95,15 +95,15 @@ nav a:hover, nav a:active {
     z-index: 999;
     width: 100%;
 }
-/* Main Grid Layout */
-main {
+/* Index Grid Layout */
+main.index {
     margin-top: 1rem;
     display: grid;
     grid-template-rows: 5rem auto;
     grid-template-columns: min-content min-content;
     justify-content: space-evenly;
 }
-header {
+main.index header {
     grid-row: 1;
     grid-column: 2;
 }
@@ -137,11 +137,10 @@ header {
     position: relative;
     display: grid;
     width: 15rem;
-    height: 20rem;
+    height: min-content;
     padding: 1rem;
-    align-content: space-around;
+    align-content: flex-start;
     justify-items: center;
-    grid-template-rows: 80% 20%;
     background-color: var(--primary-background);
     box-shadow: var(--shadow-color) .2em .3em .3em;
 }
@@ -152,13 +151,14 @@ header {
     max-width: 100%;
     margin: 0;
     padding: 0;
+    cursor: pointer;
 }
 
 .gallery__figure, .folder__figure {
     grid-template-columns: 100%;
     grid-template-rows: 90% 10%;
     display: grid;
-    height: 95%;
+    height: 20rem;
     width: 100%;
     justify-items: center;
     align-items: center;
