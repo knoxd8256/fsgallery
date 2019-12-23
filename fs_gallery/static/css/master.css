@@ -108,6 +108,31 @@ main.index header {
     grid-column: 2;
 }
 
+/* Login Page */
+.login__form {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 60%;
+    margin-left: 20%;
+    gap: 1rem;
+}
+.login__main h1 {
+    grid-column: 1 / -1;
+}
+
+.login__form input {
+    background-color: var(--nav-background);
+}
+
+.login__main [type="submit"] {
+    grid-column: 1 / -1;
+    width: max-content;
+    padding: .5rem;
+    border: none;
+    justify-self: center;
+    border-radius: 1rem;
+}
+
 /* Gallery Box Styling */
 .section__gallery {
     display: grid;

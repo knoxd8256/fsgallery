@@ -1,16 +1,14 @@
 {% extends 'base.html' %}
 
-{% block header %}
-<h1>Log In</h1>
-{% endblock %}
-
 {% block content %}
-<h1>Admin Panel</h1>
-<form method="post">
-    <label for="username">Username</label>
-    <input name="username" id="username" required>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" required>
-    <input type="submit" value="Log In">
-</form>
+<main class="login__main">
+    <h1>Admin Panel</h1>
+    <form method="post" class="login__form">
+        <label for="username">Username</label>
+        <input name="username" id="username" required>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required>
+        <input type="submit" value="Log In">
+    </form>
+</main>
 {% endblock %}

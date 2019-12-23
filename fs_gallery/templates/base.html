@@ -7,22 +7,26 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{url_for('static', filename='css/master.css')}}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    <title>Home</title>
+    <title>{{title}}</title>
 </head>
 
 <body>
     <nav>
-        <a href="#">Home</a>
+        <a href="/index">Home</a>
         <a href="#" id="portfolio__link">Portfolio</a>
         <ul class="nav__list" id="portfolio__list">
-            <a class="nav__portfolio" href="#"> Watercolor </a>
-            <a class="nav__portfolio" href="#"> Plexiglass </a>
-            <a class="nav__portfolio" href="#"> Acrylic </a>
-            <a class="nav__portfolio" href="#"> Sculpture </a>
-            <a class="nav__portfolio" href="#"> Collage </a>
-            <a class="nav__portfolio" href="#"> Gifting </a>
+            <a class="nav__portfolio" href="/portfolio/watercolor"> Watercolor </a>
+            <a class="nav__portfolio" href="/portfolio/plexiglass"> Plexiglass </a>
+            <a class="nav__portfolio" href="/portfolio/acrylic"> Acrylic </a>
+            <a class="nav__portfolio" href="/portfolio/sculpture"> Sculpture </a>
+            <a class="nav__portfolio" href="/portfolio/collage"> Collage </a>
+            <a class="nav__portfolio" href="/portfolio/gifting"> Gifting </a>
         </ul>
-        <a href="#">About</a>
+        {% if session['user_id'] == 'admin' %}
+        <a href="/addpost">Add Post</a>
+        {% endif %}
+        <a href="/about">About</a>
+        <span>{{session['user_id']}}</span>
     </nav>
     {% block content %}
     {% endblock content %}

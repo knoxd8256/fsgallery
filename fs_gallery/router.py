@@ -4,10 +4,10 @@ from flask import redirect
 from flask import url_for
 from flask import request
 from flask import send_from_directory
-from flask import flash
-from flask import g
+from flask import session
 
 from . import database
+
 
 # Routing functions.
 def router(app):
@@ -128,13 +128,14 @@ def router(app):
         str
             HTML content to be displayed.
         """
-
-        if 'user' not in g:
-            g.user = None
-
-        if g.user is not None:
-            flash('You are already logged in!')
-            return redirect(url_for('index'))
+        if request.method == 'POST':
+            db = database.getdb()
+            formdata = dict(request.form)
+            dbstatement = "SELECT * FROM flaskuser WHERE username='{}';".format(formdata["username"])
+            if formdata["password"] == db.execute(dbstatement).fetchone()["pword"]:
+                session.clear()
+                session["user_id"] = 'admin'
+                return redirect(url_for('index'))
         return render_template('login.html', title='Log In')
 
     # Upload Getter
@@ -154,6 +155,6 @@ def router(app):
     @app.route('/portfolio/<tag>')
     def portfolio(tag):
         # insert statement:  db.execute('INSERT INTO posts (title, postdesc, imgfile, forsale, size, tags) VALUES ("The Title", "Here\'s a description, yaaaah yeet!","image_01.jpg", "True", "4 x 18 in.", "watercolor, gifting")')
-        gallery = database.getdb().execute('SELECT * FROM posts;').fetchall()
+        gallery = database.getdb().execute('SELECT * FROM posts WHERE tags LIKE("%{}%");'.format(tag)).fetchall()
         return render_template("gallery.html", title="Gallery", gallery=gallery)
     return
