@@ -24,11 +24,30 @@ def create_app():
             SECRET_KEY='moranagwaycornadamangiebtlentrapcuria'
         )
         conffile = open(os.path.join(app.instance_path, 'config.py'), "w")
-        conffile.write("SECRET_KEY = 'moranagwaycornadamangiebtlentrapcuria'\n")
+        conffile.write(
+            '''
+            """
+            File containing configuration values for flask application fsGallery.
+            """
+            # Import os and define the basedir variable as the root directory of the flaskGallery app
+            import os
+            basedir = os.path.abspath(os.path.dirname(__file__))
+
+            SECRET_KEY = 'moranagwaycornadamangiebtlentrapcuria'
+            BASE_DIRECTORY = basedir
+            UPLOAD_FOLDER = os.path.join(basedir, 'picuploads')
+            DATABASE = os.path.join(basedir, 'flaskapp.sqlite')
+
+            '''
+        )
         conffile.close()
         print("Using default config. Edit config.py before deployment.")
         pass
 
+    try:
+        os.makedirs(app.config["UPLOAD_FOLDER"])
+    except OSError:
+        pass
     # Initialize routes.
     router(app)
 
