@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <main class="gallery">
+        <section class="section__gallery">
+            <h2 class="header__gallery">{{tag}}</h2>
+            {% for gallerypost in gallery %}
+                <div>
+                    {% include '_gallerypost.html' %}
+                    <a href="rempost/{{ gallerypost['id'] }}">Remove Post</a>
+                </div>
+            {% endfor %}
+        </section>
+    </main>
+{% endblock content %}

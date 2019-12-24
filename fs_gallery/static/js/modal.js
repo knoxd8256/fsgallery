@@ -3,7 +3,7 @@ function getModal(e) {
         const modalBackground = document.createElement('div');
 
         modalBackground.classList.add('modal__container');
-        modalBackground.addEventListener('click', (e) => e.target.remove())
+        modalBackground.addEventListener('click', (e) => e.target==modalBackground&&e.target.remove())
         post.classList.add('modal');
         
         modalBackground.appendChild(post);

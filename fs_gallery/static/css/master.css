@@ -31,7 +31,9 @@ img {
     max-width: 100%;
     max-height: 100%;
 }
-
+input, textarea, select, option {
+    color: black;
+}
 /* Body Styling */
 body {
     display: grid;
@@ -108,6 +110,19 @@ main.index header {
     grid-column: 2;
 }
 
+/* Admin Panel */
+.admin__main {
+    margin-top: 2rem;
+    justify-self: center;
+    display: grid;
+    height: 10rem;
+    width: 10rem;
+    justify-items: center;
+    align-items: center;
+    background-color: var(--primary-background);
+    border-radius: 2rem;
+}
+
 /* Login Page */
 .login__form {
     display: grid;
@@ -118,10 +133,6 @@ main.index header {
 }
 .login__main h1 {
     grid-column: 1 / -1;
-}
-
-.login__form input {
-    background-color: var(--nav-background);
 }
 
 .login__main [type="submit"] {
@@ -209,7 +220,10 @@ main.index header {
     --outer-ann: 36rem;
     --inner-ann: 33rem;
     position: relative;
+    justify-content: flex-end;
     grid-column: 2;
+    display: flex;
+    flex-direction: column-reverse;
     height: 85vh;
     width: var(--outer-ann);
     overflow-y: scroll;
@@ -264,7 +278,7 @@ main.index header {
 /* Modal Styling*/
 .modal {
     width: max-content;
-    height: 60%;
+    height: max-content;
     z-index: 99;
 }
 .modal__container {
@@ -278,6 +292,9 @@ main.index header {
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 10, 0.829);
+}
+.modal__container .gallery__img {
+    cursor: default;
 }
 @media(max-width:1350px) {
     .section__gallery {

@@ -12,8 +12,8 @@
 
 <body>
     <nav>
-        <a href="/index">Home</a>
-        <a href="#" id="portfolio__link">Portfolio</a>
+        <a href="/index"> Home </a>
+        <a href="#" id="portfolio__link"> Portfolio </a>
         <ul class="nav__list" id="portfolio__list">
             <a class="nav__portfolio" href="/portfolio/watercolor"> Watercolor </a>
             <a class="nav__portfolio" href="/portfolio/plexiglass"> Plexiglass </a>
@@ -22,16 +22,17 @@
             <a class="nav__portfolio" href="/portfolio/collage"> Collage </a>
             <a class="nav__portfolio" href="/portfolio/gifting"> Gifting </a>
         </ul>
+        <a href="/about"> About </a>
         {% if session['user_id'] == 'admin' %}
-        <a href="/addpost">Add Post</a>
+        <a href="/adminpanel"> Admin Panel </a>
+        <a href="/logout"> Log Out </a>
         {% endif %}
-        <a href="/about">About</a>
-        <span>{{session['user_id']}}</span>
     </nav>
     {% block content %}
     {% endblock content %}
     <script>
-        document.getElementById("portfolio__link").addEventListener("click", () => document.getElementById("portfolio__list").classList.toggle("on"));
+        document.getElementById("portfolio__link").addEventListener("click", () => document.getElementById(
+            "portfolio__list").classList.toggle("on"));
     </script>
 </body>
 

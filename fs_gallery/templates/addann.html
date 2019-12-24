@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<main class='admin__main'>
+    <form method="POST" enctype="multipart/form-data">
+        <label for="title">Title: </label><br />
+        <input type="text" name="title" id="title">
+        <br /><br />
+        <label for="body">Body: </label><br />
+        <textarea name="body" id=body></textarea>
+        <br /><br />
+        <label for="file">File: </label><br />
+        <input type="file" name="imgfile">
+        <br /><br />
+        <input type="submit" value="Submit">
+    </form>
+</main>
+{% endblock %}

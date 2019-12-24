@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<main class='admin__main'>
+    <form method="POST" enctype="multipart/form-data">
+        <label for="title">Title: </label><br />
+        <input type="text" name="title" id='title'>
+        <br /><br />
+        <label for="postdesc">Description: </label><br />
+        <textarea name="postdesc" id='postdesc'></textarea>
+        <br /><br />
+        <label for="imgfile">Image: </label><br />
+        <input type="file" name="imgfile" id='imgfile'>
+        <br /><br />
+        <label for="size">Size: (format: X by X in.)</label><br />
+        <input type="text" name="size" id="size">
+        <br /><br />
+        <p>For Sale?</p><br />
+        <label for="sale__on">Yes</label>
+        <input type="radio" name="forsale" value="1" id='sale__on'><br />
+        <label for="sale__off">No</label>
+        <input type="radio" name="forsale" value="0" id='sale__off'><br />
+        <br /><br />
+        <p>Tags:</p>
+        <label for="tag__plex">Plexiglass</label>
+        <input type="checkbox" name="tags" value="plexiglass" id="tag__plex"><br />
+        <label for="tag__water">Watercolor</label>
+        <input type="checkbox" name="tags" value="watercolor" id="tag__water"><br />
+        <label for="tag__acrylic">Acrylic</label>
+        <input type="checkbox" name="tags" value="acrylic" id="tag__acrylic"><br />
+        <label for="tag__sculpt">Sculpture</label>
+        <input type="checkbox" name="tags" value="sculpture" id="tag__sculpt"><br />
+        <label for="tag__coll">Collage</label>
+        <input type="checkbox" name="tags" value="collage" id="tag__coll"><br />
+        <label for="tag__gift">Gifting</label>
+        <input type="checkbox" name="tags" value="gifting" id="tag__gift"><br />
+        <br /><br />
+        <input type="submit" value="Submit">
+    </form>
+</main>
+{% endblock %}

@@ -11,10 +11,10 @@
             <h1>John The Artist</h1>
         </header>
         <section class="section__announcements">
-            <h3 class="header__announcements">Announcements</h3>
             {% for ann in announcements %}
                 {% include '_announcement.html' %}
             {% endfor %}
+            <h3 class="header__announcements">Announcements</h3>
         </section>
     </main>
 {% endblock content %}

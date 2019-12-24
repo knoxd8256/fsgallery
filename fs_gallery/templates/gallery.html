@@ -11,7 +11,12 @@
         <script>
             const images = [...document.getElementsByClassName("gallery__post")];
             for(image in images){
-                images[image].addEventListener('click', getModal)
+                target = images[image]
+                imagefile = target.children[0].children[0];
+                target.addEventListener('click', (e) => {
+                    if (e.target == imagefile)
+                    getModal(e);
+                });
             }
         </script>
     </main>
