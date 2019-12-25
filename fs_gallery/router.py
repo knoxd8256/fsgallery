@@ -87,7 +87,7 @@ def router(app):
         return render_template('about.html', title='About')
 
     # Login route.
-    @app.route('/login', methods=['GET', 'POST'])
+    @app.route('/login', method=['GET'])
     def login():
         """
         Login Router Function.
