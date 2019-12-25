@@ -18,9 +18,6 @@ def create_app():
     try:
         app.config.from_pyfile("config.py")
     except FileNotFoundError:
-        app.config.from_mapping(
-            SECRET_KEY='moranagwaycornadamangiebtlentrapcuria'
-        )
         conffile = open(os.path.join(app.instance_path, 'config.py'), "w")
         conffile.write(
             '''
@@ -39,6 +36,7 @@ def create_app():
             '''
         )
         conffile.close()
+        app.config.from_pyfile("config.py")
         print("Using default config. Edit config.py before deployment.")
         pass
 
