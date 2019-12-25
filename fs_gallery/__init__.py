@@ -2,8 +2,6 @@
 import os
 
 from flask import Flask
-from fs_gallery.router import router
-from fs_gallery import database
 
 
 def create_app():
@@ -48,6 +46,10 @@ def create_app():
         os.makedirs(app.config["UPLOAD_FOLDER"])
     except OSError:
         pass
+
+    # Seondary Imports
+    from fs_gallery import database
+    from fs_gallery.router import router
     # Initialize routes.
     router(app)
 
