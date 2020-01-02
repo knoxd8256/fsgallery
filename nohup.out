@@ -1,0 +1,163 @@
+[2019-12-25 02:30:34 +0000] [18063] [INFO] Starting gunicorn 20.0.4
+[2019-12-25 02:30:34 +0000] [18063] [INFO] Listening at: http://167.71.90.169:80 (18063)
+[2019-12-25 02:30:34 +0000] [18063] [INFO] Using worker: sync
+[2019-12-25 02:30:34 +0000] [18066] [INFO] Booting worker with pid: 18066
+[2019-12-25 02:31:08 +0000] [18063] [INFO] Handling signal: term
+[2019-12-25 02:31:08 +0000] [18066] [INFO] Worker exiting (pid: 18066)
+[2019-12-25 02:31:08 +0000] [18063] [INFO] Shutting down: Master
+[2019-12-25 02:31:23 +0000] [18070] [INFO] Starting gunicorn 20.0.4
+[2019-12-25 02:31:23 +0000] [18070] [INFO] Listening at: http://167.71.90.169:80 (18070)
+[2019-12-25 02:31:23 +0000] [18070] [INFO] Using worker: sync
+[2019-12-25 02:31:23 +0000] [18073] [INFO] Booting worker with pid: 18073
+[2019-12-25 02:31:23 +0000] [18074] [INFO] Booting worker with pid: 18074
+[2019-12-25 02:31:23 +0000] [18075] [INFO] Booting worker with pid: 18075
+[2019-12-25 02:31:24 +0000] [18076] [INFO] Booting worker with pid: 18076
+[2019-12-25 10:13:45 +0000] [18070] [CRITICAL] WORKER TIMEOUT (pid:18076)
+[2019-12-25 10:13:45 +0000] [18076] [INFO] Worker exiting (pid: 18076)
+[2019-12-25 10:13:45 +0000] [19477] [INFO] Booting worker with pid: 19477
+[2019-12-25 18:22:40,141] ERROR in app: Exception on /login [POST]
+Traceback (most recent call last):
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/flaskapp/fsgallery/fs_gallery/router.py", line 103, in login
+    if request.form["password"] == user["pword"]:
+TypeError: 'NoneType' object is not subscriptable
+[2019-12-25 18:23:03,484] ERROR in app: Exception on /login [POST]
+Traceback (most recent call last):
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/flaskapp/fsgallery/fs_gallery/router.py", line 103, in login
+    if request.form["password"] == user["pword"]:
+TypeError: 'NoneType' object is not subscriptable
+[2019-12-25 18:33:36 +0000] [18070] [CRITICAL] WORKER TIMEOUT (pid:18075)
+[2019-12-25 18:33:37 +0000] [21063] [INFO] Booting worker with pid: 21063
+[2019-12-25 18:34:09 +0000] [18070] [CRITICAL] WORKER TIMEOUT (pid:18074)
+[2019-12-25 18:34:10 +0000] [21066] [INFO] Booting worker with pid: 21066
+[2019-12-26 15:23:33 +0000] [18070] [CRITICAL] WORKER TIMEOUT (pid:21066)
+[2019-12-26 15:23:33 +0000] [21066] [INFO] Worker exiting (pid: 21066)
+[2019-12-26 15:23:33 +0000] [22118] [INFO] Booting worker with pid: 22118
+[2019-12-29 06:26:42 +0000] [18073] [ERROR] Socket error processing request.
+Traceback (most recent call last):
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/workers/sync.py", line 133, in handle
+    req = next(parser)
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/http/parser.py", line 41, in __next__
+    self.mesg = self.mesg_class(self.cfg, self.unreader, self.req_count)
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/http/message.py", line 186, in __init__
+    super().__init__(cfg, unreader)
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/http/message.py", line 53, in __init__
+    unused = self.parse(self.unreader)
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/http/message.py", line 235, in parse
+    self.headers = self.parse_headers(data[:idx])
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/http/message.py", line 73, in parse_headers
+    remote_addr = self.unreader.sock.getpeername()
+OSError: [Errno 107] Transport endpoint is not connected
+[2019-12-29 06:26:45 +0000] [19477] [ERROR] Socket error processing request.
+Traceback (most recent call last):
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/workers/sync.py", line 133, in handle
+    req = next(parser)
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/http/parser.py", line 41, in __next__
+    self.mesg = self.mesg_class(self.cfg, self.unreader, self.req_count)
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/http/message.py", line 186, in __init__
+    super().__init__(cfg, unreader)
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/http/message.py", line 53, in __init__
+    unused = self.parse(self.unreader)
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/http/message.py", line 235, in parse
+    self.headers = self.parse_headers(data[:idx])
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/http/message.py", line 73, in parse_headers
+    remote_addr = self.unreader.sock.getpeername()
+OSError: [Errno 107] Transport endpoint is not connected
+[2019-12-29 06:26:46 +0000] [21063] [ERROR] Socket error processing request.
+Traceback (most recent call last):
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/workers/sync.py", line 133, in handle
+    req = next(parser)
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/http/parser.py", line 41, in __next__
+    self.mesg = self.mesg_class(self.cfg, self.unreader, self.req_count)
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/http/message.py", line 186, in __init__
+    super().__init__(cfg, unreader)
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/http/message.py", line 53, in __init__
+    unused = self.parse(self.unreader)
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/http/message.py", line 235, in parse
+    self.headers = self.parse_headers(data[:idx])
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/http/message.py", line 73, in parse_headers
+    remote_addr = self.unreader.sock.getpeername()
+OSError: [Errno 107] Transport endpoint is not connected
+[2019-12-29 06:26:48 +0000] [21063] [ERROR] Socket error processing request.
+Traceback (most recent call last):
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/workers/sync.py", line 133, in handle
+    req = next(parser)
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/http/parser.py", line 41, in __next__
+    self.mesg = self.mesg_class(self.cfg, self.unreader, self.req_count)
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/http/message.py", line 186, in __init__
+    super().__init__(cfg, unreader)
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/http/message.py", line 53, in __init__
+    unused = self.parse(self.unreader)
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/http/message.py", line 235, in parse
+    self.headers = self.parse_headers(data[:idx])
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/http/message.py", line 73, in parse_headers
+    remote_addr = self.unreader.sock.getpeername()
+OSError: [Errno 107] Transport endpoint is not connected
+[2019-12-29 06:26:50 +0000] [22118] [ERROR] Socket error processing request.
+Traceback (most recent call last):
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/workers/sync.py", line 133, in handle
+    req = next(parser)
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/http/parser.py", line 41, in __next__
+    self.mesg = self.mesg_class(self.cfg, self.unreader, self.req_count)
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/http/message.py", line 186, in __init__
+    super().__init__(cfg, unreader)
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/http/message.py", line 53, in __init__
+    unused = self.parse(self.unreader)
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/http/message.py", line 235, in parse
+    self.headers = self.parse_headers(data[:idx])
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/http/message.py", line 73, in parse_headers
+    remote_addr = self.unreader.sock.getpeername()
+OSError: [Errno 107] Transport endpoint is not connected
+[2019-12-29 06:26:50 +0000] [18073] [ERROR] Socket error processing request.
+Traceback (most recent call last):
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/workers/sync.py", line 133, in handle
+    req = next(parser)
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/http/parser.py", line 41, in __next__
+    self.mesg = self.mesg_class(self.cfg, self.unreader, self.req_count)
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/http/message.py", line 186, in __init__
+    super().__init__(cfg, unreader)
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/http/message.py", line 53, in __init__
+    unused = self.parse(self.unreader)
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/http/message.py", line 235, in parse
+    self.headers = self.parse_headers(data[:idx])
+  File "/home/flaskapp/fsgallery/venv/lib64/python3.7/site-packages/gunicorn/http/message.py", line 73, in parse_headers
+    remote_addr = self.unreader.sock.getpeername()
+OSError: [Errno 107] Transport endpoint is not connected
+[2019-12-29 12:59:47 +0000] [18070] [CRITICAL] WORKER TIMEOUT (pid:22118)
+[2019-12-29 12:59:47 +0000] [22118] [INFO] Worker exiting (pid: 22118)
+[2019-12-29 12:59:47 +0000] [27027] [INFO] Booting worker with pid: 27027
+[2019-12-30 23:55:20 +0000] [18070] [CRITICAL] WORKER TIMEOUT (pid:21063)
+[2019-12-30 23:55:20 +0000] [21063] [INFO] Worker exiting (pid: 21063)
+[2019-12-30 23:55:20 +0000] [28446] [INFO] Booting worker with pid: 28446
+[2020-01-02 11:39:58 +0000] [18070] [CRITICAL] WORKER TIMEOUT (pid:18073)
+[2020-01-02 11:39:58 +0000] [18073] [INFO] Worker exiting (pid: 18073)
+[2020-01-02 11:39:58 +0000] [33194] [INFO] Booting worker with pid: 33194
+[2020-01-02 22:23:34 +0000] [18070] [INFO] Handling signal: term
+[2020-01-02 22:23:34 +0000] [19477] [INFO] Worker exiting (pid: 19477)
+[2020-01-02 22:23:34 +0000] [27027] [INFO] Worker exiting (pid: 27027)
+[2020-01-02 22:23:34 +0000] [28446] [INFO] Worker exiting (pid: 28446)
+[2020-01-02 22:23:34 +0000] [33194] [INFO] Worker exiting (pid: 33194)
+[2020-01-02 22:23:35 +0000] [18070] [INFO] Shutting down: Master
