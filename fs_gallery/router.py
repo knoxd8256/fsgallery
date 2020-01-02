@@ -5,6 +5,8 @@ from flask import url_for
 from flask import request
 from flask import send_from_directory
 from flask import session
+from PIL import Image
+from PIL import ImageOps
 import random
 import string
 import os
@@ -182,10 +184,11 @@ def router(app):
         if 'user_id' not in session or session['user_id'] != 'admin':
             return redirect(url_for('index'))
         if request.method == 'POST':
+            image = request.files['imgfile']
             tags = ','.join(request.form.getlist('tags'))
             realform = dict(request.form)
             realform['tags'] = tags
-            realform['imgfile'] = request.files['imgfile'].filename
+            realform['imgfile'] = image.filename
             db = database.getdb()
             extension = '.' + realform['imgfile'].split('.')[-1]
             imgname = ''.join(random.choice(string.ascii_letters) for x in range(12))
@@ -193,7 +196,10 @@ def router(app):
             db.execute("INSERT INTO posts (title, postdesc, imgfile, forsale, size, tags) VALUES (?, ?, ?, ?, ?, ?)", (realform['title'], realform['postdesc'], realform['imgname'], realform['forsale'], realform['size'], realform['tags']))
             db.commit()
             path = os.path.join(app.config['UPLOAD_FOLDER'], realform["imgname"])
-            request.files['imgfile'].save(path)
+            image.save(path)
+            with Image.open(path) as reimage:
+                transposed = ImageOps.exif_transpose(reimage)
+                transposed.save(path)
             return redirect(url_for('index'))
         return render_template('addpost.html', title='Add Post')
 
