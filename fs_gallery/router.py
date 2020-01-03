@@ -11,6 +11,7 @@ import random
 import string
 import os
 from . import database
+from werkzeug.security import check_password_hash as check
 
 
 # Routing functions.
@@ -102,7 +103,7 @@ def router(app):
         if request.method == 'POST':
             db = database.getdb()
             user = db.execute("SELECT * FROM flaskuser WHERE username=?", (request.form['username'],)).fetchone()
-            if request.form["password"] == user["pword"]:
+            if check(user["pword"], request.form["password"]):
                 session.clear()
                 session["user_id"] = 'admin'
                 return redirect(url_for('index'))
